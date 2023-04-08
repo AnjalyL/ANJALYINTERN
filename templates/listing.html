@@ -1,0 +1,46 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+
+
+
+<div class ="px-3 py-1 bg-gray-100 rounded sm">
+    
+    <h3 class = "text-3xl text-gray-900">
+        ID : {{listing.Id}}
+    </h3>
+    <p class = "text-3xl text-gray-900">OverallCondition: {{listing.OverallCond}}</p>
+    <p class = "text-3xl text-gray-900">SalePrice : {{listing.SalePrice}}</p>
+
+
+    {% if request.user.is_staff %}
+    <div class = "mt-5 py-5 border-t border-gray-200">
+
+        <a href = "/listings/{{ listing.Id}}/edit/" class ="text-blue-500">
+           Edit
+        </a>
+
+        <a href = "/listings/{{ listing.Id}}/delete/" class ="text-blue-500">
+            Delete
+         </a>
+
+         <a href = "/listings/{{ listing.Id}}/booknow" class ="text-blue-500">
+            BOOK NOW
+         </a>
+</div>
+{% endif %}
+
+</div>
+    
+
+
+
+
+
+
+
+{% endblock content %}
